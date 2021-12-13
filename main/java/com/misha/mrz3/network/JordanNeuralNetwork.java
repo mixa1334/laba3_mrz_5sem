@@ -66,7 +66,7 @@ public class JordanNeuralNetwork {
                         for (int k = 0; k < m; k++) {
                             vector[j] += X[offset + k] * W1[k + 1][j];
                         }
-                        vector[j] = Math.max(vector[j] * 0.01, vector[j]);
+                        vector[j] = Math.max(vector[j] * 0.1, vector[j]);
                     }
 
                     C = 0;
@@ -74,7 +74,7 @@ public class JordanNeuralNetwork {
                         C += vector[k] * W2[k][0];
                     }
                     C += 1 * W2[W2.length - 1][0];
-                    C = Math.max(C * 0.01, C);
+                    C = Math.max(C * 0.1, C);
 
                     double linearError = C - X[offset + m];
                     if (i == 0) {
@@ -109,7 +109,7 @@ public class JordanNeuralNetwork {
                 for (int k = 0; k < m; k++) {
                     vector[j] += result[n - m + k] * W1[k + 1][j];
                 }
-                vector[j] = Math.max(vector[j] * 0.01, vector[j]);
+                vector[j] = Math.max(vector[j] * 0.1, vector[j]);
             }
 
             C = 0;
@@ -117,7 +117,7 @@ public class JordanNeuralNetwork {
                 C += vector[k] * W2[k][0];
             }
             C += 1 * W2[W2.length - 1][0];
-            C = Math.max(C * 0.01, C);
+            C = Math.max(C * 0.1, C);
 
             result[n++] = C;
         }
